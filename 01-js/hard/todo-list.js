@@ -9,9 +9,45 @@
 
   Once you've implemented the logic, test your code by running
 */
-
 class Todo {
 
+  constructor() {
+    this.lsitOfTodos = [];
+  }
+
+  add(item) {
+    this.lsitOfTodos.push(item);
+  }
+
+  remove(indexOfTodo) {
+    if (indexOfTodo < this.lsitOfTodos.length) {
+      this.lsitOfTodos.splice(indexOfTodo, 1);
+    }
+  }
+
+  update(index, updatedTodo) {
+    if (index < this.lsitOfTodos.length) {
+      this.lsitOfTodos[index] = updatedTodo;
+    } else {
+      return ("NOT A VALID INDEX");
+    }
+  }
+
+  getAll() {
+    return this.lsitOfTodos;
+  }
+
+  get(indexOfTodo) {
+    if (indexOfTodo < this.lsitOfTodos.length) {
+      return this.lsitOfTodos[indexOfTodo];
+    } else {
+      return null;
+    }
+  }
+
+  clear() {
+    this.lsitOfTodos = [];
+  }
 }
 
 module.exports = Todo;
